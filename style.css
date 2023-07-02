@@ -1,0 +1,171 @@
+:root {
+    --textColor: #000000;
+    --backgroundColor: #ffffff;
+    --accentColor1: #600080;
+    --accentColor2: #dfd6e6;
+    --accentColor3: #8d6ea6;
+    --mainFont: 'Poppins', sans-serif;
+
+
+    --fontSizeLargest: min(7vw, 48px);
+    --fontSizeLarger: min(5vw, 32px);
+    --fontSizeNormal: min(2.5vw, 16px);
+    --fontSizeSmaller: min(1, 12px);
+    --fontSizeSmallest: min(0.75, 8px);
+
+}
+
+body, html {
+    font-family: var(--mainFont);
+    color: var(--textColor);
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.noScroll {
+    overflow: hidden;
+}
+
+.noPadding {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.card {
+    border-radius: 25px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+}
+
+.centerItems {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.mainCard {
+    position: relative;
+    max-height: 90%;
+    max-width: 90%;
+}
+
+.mainCard * {
+    padding: 0.25rem;
+    margin: 1rem;
+}
+
+.mainCard h1{
+    font-size: var(--fontSizeLargest);
+}
+
+.mainCard h2{
+    font-size: var(--fontSizeLarger);
+}
+
+.mainOptions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: var(--fontSizeNormal);
+    max-width: 10rem;
+    max-height: 10rem;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    border: none;
+    background-color: white;
+}
+
+.option:hover, .option:focus-visible {
+    transform: translateY(-0.5rem);
+}
+
+.option:nth-child(1) svg path {
+    fill: purple;
+}
+
+.option:nth-child(1):hover, option:nth-child(1):focus-visible {
+    outline: 2px solid purple;
+    background-color: rgba(128, 0, 128, 0.15);
+}
+
+.option:nth-child(2) svg path {
+    fill: green;
+}
+
+.option:nth-child(2):hover, option:nth-child(2):focus-visible {
+    outline: 2px solid green;
+    background-color: rgba(0, 128, 0, 0.15);
+
+}
+
+.option:nth-child(3) svg path {
+    fill: firebrick;
+}
+
+.option:nth-child(3):hover, option:nth-child(3):focus-visible {
+    outline: 2px solid firebrick;
+    background-color: rgba(178, 34, 34, 0.15);
+}
+
+.option:nth-child(4) svg path {
+    fill: goldenrod;
+}
+
+.option:nth-child(4):hover, option:nth-child(4):focus-visible {
+    outline: 2px solid goldenrod;
+    background-color: rgba(218, 165, 32, 0.15);
+}
+
+.option:hover svg, .option:focus-visible svg{
+    filter: none;
+}
+
+.option:focus-visible {
+    outline: 2px solid var(--accentColor1)
+}
+
+.option svg {
+    position: relative;
+    width: 50%;
+    height: 50%;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    transition: filter 0.3s ease-in-out;
+    filter: brightness(0);
+}
+
+.option h3 {
+    font-size: var(--fontSizeNormal);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.roundBox {
+    border-radius: 25px;
+    aspect-ratio: 1;
+}
+
+.boxShadow {
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+}
