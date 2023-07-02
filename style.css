@@ -159,6 +159,7 @@ body {
     font-size: var(--fontSizeNormal);
     margin-top: 0;
     margin-bottom: 0.5rem;
+    color: var(--textColor);
 }
 
 .roundBox {
