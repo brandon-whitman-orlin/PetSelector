@@ -1,7 +1,23 @@
 document.addEventListener("DOMContentLoaded", (event) => {
+    const perfectPet = document.getElementById("perfectPet");
+    const localPets = document.getElementById("localPets");
+    const petSupplies = document.getElementById("petSupplies");
+    const aboutProject = document.getElementById("aboutProject");
+
+    perfectPet.addEventListener("click", (event) => {
+        showLoadingScreen(document.getElementById("loadingScreen"));
+    });
+    localPets.addEventListener("click", (event) => {
+        showLoadingScreen(document.getElementById("loadingScreen"));
+    });
+    petSupplies.addEventListener("click", (event) => {
+        showLoadingScreen(document.getElementById("loadingScreen"));
+    });
+    aboutProject.addEventListener("click", (event) => {
+        showLoadingScreen(document.getElementById("loadingScreen"));
+    });
+
     hideLoadingScreen(document.getElementById("loadingScreen"));
-    // showLoadingScreen(document.getElementById("loadingScreen"));
-    // hideLoadingScreen(document.getElementById("loadingScreen"));
 });
 
 function showLoadingScreen(dialog) {
@@ -29,6 +45,5 @@ function showLoadingScreen(dialog) {
 
 function hideLoadingScreen(dialog) {
     dialog.close();
-
     dialog.style.display = "none";
 }
