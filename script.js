@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 function showLoadingScreen(dialog) {
     dialog.showModal();
-
     dialog.style.display = "flex";
 
     const texts = [
@@ -22,6 +21,10 @@ function showLoadingScreen(dialog) {
         loadingText.textContent = texts[currentIndex];
         currentIndex = (currentIndex + 1) % texts.length;
     }, 250);
+
+    setTimeout(() => {
+        hideLoadingScreen(dialog);
+    }, 3000);
 }
 
 function hideLoadingScreen(dialog) {
