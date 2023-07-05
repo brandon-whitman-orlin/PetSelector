@@ -42,7 +42,8 @@ body {
 	box-sizing: border-box;
 }
 
-.main {
+main {
+    max-width: 100%;
 	width: 100vw;
 	height: 100vh;
 }
@@ -248,6 +249,13 @@ dialog p {
 
 .dot:nth-child(8) {
 	transform: rotate(225deg) translateX(2.5rem) rotate(-270deg);
+}
+
+.question {
+    border: 2px solid red;
+
+    min-width: 10rem;
+    width: fit-content;
 }
 
 @keyframes spin {

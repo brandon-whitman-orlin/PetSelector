@@ -5,42 +5,74 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const aboutProject = document.getElementById("aboutProject");
 
     perfectPet.addEventListener("click", (event) => {
-        showLoadingScreen(document.getElementById("loadingScreen"));
+        showLoadingScreen(document.getElementById("loadingScreen"))
+            .then(() => {
+                console.log("Loading screen completed.");
+                window.location.href = "perfectPet.html";
+            })
+            .catch((error) => {
+                console.error("Error occurred while showing loading screen:", error);
+            });
     });
     localPets.addEventListener("click", (event) => {
-        showLoadingScreen(document.getElementById("loadingScreen"));
+        showLoadingScreen(document.getElementById("loadingScreen"))
+            .then(() => {
+                console.log("Loading screen completed.");
+                // Run additional code here
+            })
+            .catch((error) => {
+                console.error("Error occurred while showing loading screen:", error);
+            });
     });
     petSupplies.addEventListener("click", (event) => {
-        showLoadingScreen(document.getElementById("loadingScreen"));
+        showLoadingScreen(document.getElementById("loadingScreen"))
+            .then(() => {
+                console.log("Loading screen completed.");
+                // Run additional code here
+            })
+            .catch((error) => {
+                console.error("Error occurred while showing loading screen:", error);
+            });
     });
     aboutProject.addEventListener("click", (event) => {
-        showLoadingScreen(document.getElementById("loadingScreen"));
+        showLoadingScreen(document.getElementById("loadingScreen"))
+            .then(() => {
+                console.log("Loading screen completed.");
+                // Run additional code here
+            })
+            .catch((error) => {
+                console.error("Error occurred while showing loading screen:", error);
+            });
     });
 
     hideLoadingScreen(document.getElementById("loadingScreen"));
 });
 
 function showLoadingScreen(dialog) {
-    dialog.showModal();
-    dialog.style.display = "flex";
+    return new Promise((resolve) => {
+        dialog.showModal();
+        dialog.style.display = "flex";
 
-    const texts = [
-        "Loading",
-        "Loading.",
-        "Loading..",
-        "Loading..."
-    ];
-    let currentIndex = 0;
-    const loadingText = dialog.querySelector("#loadingText");
+        const texts = [
+            "Loading",
+            "Loading.",
+            "Loading..",
+            "Loading..."
+        ];
+        let currentIndex = 0;
+        const loadingText = dialog.querySelector("#loadingText");
 
-    setInterval(() => {
-        loadingText.textContent = texts[currentIndex];
-        currentIndex = (currentIndex + 1) % texts.length;
-    }, 250);
+        const intervalId = setInterval(() => {
+            loadingText.textContent = texts[currentIndex];
+            currentIndex = (currentIndex + 1) % texts.length;
+        }, 250);
 
-    setTimeout(() => {
-        hideLoadingScreen(dialog);
-    }, 3000);
+        setTimeout(() => {
+            clearInterval(intervalId);
+            hideLoadingScreen(dialog);
+            resolve();
+        }, 3000);
+    });
 }
 
 function hideLoadingScreen(dialog) {
