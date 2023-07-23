@@ -1,9 +1,9 @@
 :root {
-	--textColor: #000;
-	--backgroundColor: #fff;
-	--accentColor1: #600080;
-	--accentColor2: #dfd6e6;
-	--accentColor3: #8d6ea6;
+	--textColor: rgba(0, 0, 0, 1);
+	--backgroundColor: rgba(255, 255, 255, 1);
+	--accentColor: rgba(96, 0, 128, 1);
+	--accentColorTransparent: rgba(96, 0, 128, 0.25);
+	--shadowColor: rgba(0, 0, 0, 0.5);
 	--mainFont: 'Poppins', sans-serif;
 	--fontSizeLargest: min(7vw, 48px);
 	--fontSizeLarger: min(5vw, 32px);
@@ -37,7 +37,7 @@ body {
 
 .card {
 	border-radius: 25px;
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+	box-shadow: 0 2px 5px 0 var(--shadowColor);
 	padding: 1rem;
 	box-sizing: border-box;
 }
@@ -60,6 +60,7 @@ main {
 	position: relative;
 	max-height: 90%;
 	max-width: 90%;
+	overflow: hidden;
 }
 
 .mainCard * {
@@ -92,7 +93,7 @@ main {
 	cursor: pointer;
 	transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 	border: none;
-	background-color: #fff;
+	background-color: var(--backgroundColor);
 }
 
 .option:hover,
@@ -168,7 +169,7 @@ main {
 }
 
 .boxShadow {
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+	box-shadow: 0 2px 5px 0 var(--shadowColor);
 }
 
 dialog {
@@ -252,10 +253,88 @@ dialog p {
 }
 
 .question {
-    border: 2px solid red;
-
-    min-width: 10rem;
     width: fit-content;
+	display: grid;
+	max-width: 90%;
+	place-items: center;
+}
+
+.questionTitle {
+	font-weight: bold;
+	font-size: var(--fontSizeLargest);
+}
+
+.questionDesc {
+	text-align: center;
+	word-wrap: break-word;
+}
+
+.questionResponse {
+	position: relative;
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: 1fr;
+	padding-bottom: 4rem;
+}
+
+.questionResponse .qOption {
+	border: 2px solid var(--shadowColor);
+	position: relative;
+	border-radius: 25px;
+	padding: 1rem;
+	cursor: pointer;
+}
+
+.qOption:hover, .qOption:focus-visible {
+	outline: none;
+	background-color: var(--accentColorTransparent);
+}
+
+.questionResponse input {
+	display: none;
+}
+
+.questionResponse input[type="radio"]:checked + label {
+	background-color: var(--accentColor);
+	color: var(--backgroundColor);
+}
+
+.questionControls {
+	box-sizing: border-box;
+	position: absolute;
+    bottom: 0%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.questionControls button {
+	display: flex;
+	align-items: center;	
+	justify-content: center;
+	flex: 0% 1 0%;
+	aspect-ratio: 1;
+	border-radius: 25%;
+	padding: 1rem;
+	background-color: transparent;
+	cursor: pointer;
+	border: 2px solid transparent;
+	box-sizing: border-box;
+}
+
+.questionControls #previousButton:hover, .questionControls #previousButton:focus-visible {
+	outline: none;
+	border: 2px solid var(--shadowColor);
+	background-color: rgba(255, 0, 0, 0.5);
+}
+
+.questionControls #nextButton:hover, .questionControls #nextButton:focus-visible {
+	outline: none;
+	border: 2px solid var(--shadowColor);
+	background-color: rgba(0, 255, 0, 0.5);
 }
 
 @keyframes spin {
